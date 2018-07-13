@@ -26,6 +26,8 @@ class ViewController: UIViewController {
    //     return randInt
    // }
     
+    //var randMovie : Movie
+    
     //print(“My random number is \(randomInt(upper: 100))“)
     
     
@@ -46,17 +48,33 @@ class ViewController: UIViewController {
             case .success:
                 if let value = response.result.value {
                     let json = JSON(value)
+                    
+                    let allMoviesData = json["feed"]["entry"].arrayValue
+                    var randMovies: [Movie] = []
+                    
+                    for movie in allMoviesData {
+                        randMovies.append(Movie( json: movie))
+                    }
+                
+                    let randMovie : Movie = randMovies[Int(arc4random_uniform(UInt32(randMovies.count)))]
+                    
+                     print("The top movie is \(randMovie.name) by \(randMovie.rightsOwner). It costs $\(randMovie.price) and was released on \(randMovie.releaseDate). You can view it on iTunes here: \(randMovie.link)")
+                    self.loadPoster(urlString: randMovie.poster)
                 }
                 
-                    
+               
                     // Do what you need to with JSON here!
                     // The rest is all boiler plate code you'll use for API requests
-                    //guard let jsonURL = Bundle.main.url(forResource: //"iTunes-Movies", withExtension: "json") else {
-                      //  print("Could not find iTunes-Movies.json!")
-                      //  return
-                   // }
+                   // guard let jsonURL = Bundle.main.url(forResource: "iTunes-Movies", withExtension: "json") else {
+                    //    print("Could not find iTunes-Movies.json!")
+                    //    return
+                    //}
+                
+                
+                
+              
                    
-                 //   let randNum : Int = Int(arc4random_uniform(UInt32(movieList.count)))
+                
                     
                    // let movie : Movie = movieList[randNum]
                     
@@ -80,7 +98,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func viewOniTunesPressed(_ sender: AnyObject) {
-        
+       // UIApplication.shared.openURL(URL(string: randMovie.link)!)
     }
     
 }

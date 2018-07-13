@@ -15,6 +15,7 @@ struct Movie: Decodable {
     let price: Double
     let link: String
     let releaseDate: String
+    let poster: String
     
     init(json: JSON) {
     self.name = json["im:name"]["label"].stringValue
@@ -22,5 +23,7 @@ struct Movie: Decodable {
         self.price = Double(json["im:price"]["attributes"]["amount"].stringValue)! //square brackets are numbers
         self.link = json["link"][0]["attributes"]["href"].stringValue
         self.releaseDate = json["im:releaseDate"]["attributes"]["label"].stringValue
+        self.poster = json["im:image"][0]["label"].stringValue
+        
     }
 }
