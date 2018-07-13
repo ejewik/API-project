@@ -41,6 +41,19 @@ internal func exerciseOne() {
      
      */
     
+    let first = userData["results"][0]["name"]["first"].stringValue
+    let last = userData["results"][0]["name"]["last"].stringValue
+    let street = userData["results"][0]["location"]["street"].stringValue
+    let city = userData["results"][0]["location"]["city"].stringValue
+    let state = userData["results"][0]["location"]["state"]
+    let postcode = userData["results"][0]["location"]["postcode"].intValue
+    let title = userData["results"][0]["name"]["title"].stringValue
+    let email = userData["results"][0]["email"].stringValue
+    let cell = userData["results"][0]["cell"].stringValue
+    
+    print("\(first) \(last) lives at \(street) in \(city), \(state), \(postcode). If you want to contact \(title). \(last), you can email \(email) or call at \(cell).")
+    
+    
     
     
     
@@ -68,7 +81,7 @@ internal func exerciseTwo() {
     
     // Uncomment this print statement when you are ready to check your code!
     
-//    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
+    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
 }
 
 internal func exerciseThree() {
@@ -88,6 +101,7 @@ internal func exerciseThree() {
     // We've done you the favor of grabbing an array of JSON objects representing each movie
     let allMoviesData = moviesData["feed"]["entry"].arrayValue
     
+    
     /*
      
      Figure out a way to turn the allMoviesData array into Movie structs!
@@ -95,8 +109,34 @@ internal func exerciseThree() {
      */
     var allMovies: [Movie] = []
     
+    for jsonMovie in allMoviesData{
+        let topMovie = Movie(json: jsonMovie)
+        allMovies.append(topMovie)
+       
+    }
     
+    for movie in allMovies {
+        
+        if movie.rightsOwner.range(of: "Disney") != nil
+        {
+            print(movie.name)
+        }
+        
+    }
     
+    for movie in allMovies {
+        if movie.price < 15.00
+        {
+            print("\(movie.name) is \(movie.price)")
+        }
+    }
+    
+    for movie in allMovies {
+        if movie.releaseDate.range(of: "2016") != nil
+        {
+            print("\(movie.name) is released in \(movie.releaseDate)")
+        }
+    }
     
     /*
      

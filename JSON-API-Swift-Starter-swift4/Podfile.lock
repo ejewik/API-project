@@ -12,6 +12,10 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator (from `https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git`)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftyJSON
+
 EXTERNAL SOURCES:
   Alamofire:
     :git: https://github.com/Alamofire/Alamofire.git
@@ -39,4 +43,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: eba54b2725d721b27cf1840f6a168a8bf63c330a
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

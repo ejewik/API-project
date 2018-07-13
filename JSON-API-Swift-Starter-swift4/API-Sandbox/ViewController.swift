@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireImage
 import AlamofireNetworkActivityIndicator
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -20,13 +21,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
+   // func randomInt (upper: Int) -> Int {
+   //     let randInt: Int = Int(arc4random_uniform(UInt32(upper)))
+   //     return randInt
+   // }
+    
+    //print(“My random number is \(randomInt(upper: 100))“)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        exerciseOne()
-        exerciseTwo()
-        exerciseThree()
+        //exerciseOne()
+        //exerciseTwo()
+        //exerciseThree()
+       
+        
         
         let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
         // This code will call the iTunes top 25 movies endpoint listed above
@@ -35,18 +46,29 @@ class ViewController: UIViewController {
             case .success:
                 if let value = response.result.value {
                     let json = JSON(value)
+                }
+                
                     
                     // Do what you need to with JSON here!
                     // The rest is all boiler plate code you'll use for API requests
+                    //guard let jsonURL = Bundle.main.url(forResource: //"iTunes-Movies", withExtension: "json") else {
+                      //  print("Could not find iTunes-Movies.json!")
+                      //  return
+                   // }
+                   
+                 //   let randNum : Int = Int(arc4random_uniform(UInt32(movieList.count)))
                     
+                   // let movie : Movie = movieList[randNum]
                     
-                }
+                //    print("\(movie.name) and \(movie.releaseDate)")
+                    
+                
             case .failure(let error):
                 print(error)
-            }
-        }
+         
     }
-
+    }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,4 +84,5 @@ class ViewController: UIViewController {
     }
     
 }
+
 

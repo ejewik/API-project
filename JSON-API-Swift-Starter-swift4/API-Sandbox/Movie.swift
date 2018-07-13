@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Movie {
+struct Movie: Decodable {
     let name: String
     let rightsOwner: String
     let price: Double
@@ -17,10 +17,10 @@ struct Movie {
     let releaseDate: String
     
     init(json: JSON) {
-        self.name = ""
-        self.rightsOwner = ""
-        self.price = 0
-        self.link = ""
-        self.releaseDate = ""
+    self.name = json["im:name"]["label"].stringValue
+        self.rightsOwner = json["rights"]["label"].stringValue
+        self.price = Double(json["im:price"]["attributes"]["amount"].stringValue)! //square brackets are numbers
+        self.link = json["link"][0]["attributes"]["href"].stringValue
+        self.releaseDate = json["im:releaseDate"]["attributes"]["label"].stringValue
     }
 }

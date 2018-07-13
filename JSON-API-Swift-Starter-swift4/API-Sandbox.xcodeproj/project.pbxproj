@@ -120,7 +120,6 @@
 				BC7C844D1D1D488300BA19ED /* Frameworks */,
 				BC7C844E1D1D488300BA19ED /* Resources */,
 				EF8E840EBFBEDF60C38DCF30 /* [CP] Embed Pods Frameworks */,
-				45D53B8BCBFBC659C83912DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,21 +180,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		45D53B8BCBFBC659C83912DB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-API-Sandbox/Pods-API-Sandbox-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B0563F6FFE45FF69FCFDEE6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
